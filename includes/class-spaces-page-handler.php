@@ -145,6 +145,10 @@ class Spaces_Page_Handler {
 
 	public function handle_classroom_template_redirect() {
 
+		// global flag for conditional enqueue of glider js
+		global $is_classroom_template; // Define a global flag
+		$is_classroom_template = true; // Set flag to true for classroom template
+
 		$classroom_slug = get_query_var( 'classroom_slug' );
 
 		if ( ! $classroom_slug ) {

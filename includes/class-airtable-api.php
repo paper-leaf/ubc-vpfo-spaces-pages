@@ -44,7 +44,7 @@ class Airtable_Api {
 			'maxRecords'      => 1,
 		);
 
-		$request  = $this->van_airtable->getContent( 'Buildings', $params );
+		$request  = $this->van_airtable->getContent( 'Buildings', $params ); // TODO - get the correct db (van or ok)
 		$response = $request->getResponse();
 
 		if ( ! $response['records'] || empty( $response['records'] ) ) {
@@ -67,7 +67,7 @@ class Airtable_Api {
 			'filterByFormula' => sprintf( "AND( {Building Code} = '%s' )", $building_code ),
 		);
 
-		$request  = $this->van_airtable->getContent( 'Classrooms', $params );
+		$request  = $this->van_airtable->getContent( 'Classrooms', $params ); // TODO - get the correct db (van or ok)
 		$response = $request->getResponse();
 
 		if ( ! $response['records'] || empty( $response['records'] ) ) {
@@ -84,7 +84,7 @@ class Airtable_Api {
 			'maxRecords'      => 1,
 		);
 
-		$request  = $this->van_airtable->getContent( 'Classrooms', $params );
+		$request  = $this->van_airtable->getContent( 'Classrooms', $params ); // TODO - get the correct db (van or ok)
 		$response = $request->getResponse();
 
 		if ( ! $response['records'] || empty( $response['records'] ) ) {

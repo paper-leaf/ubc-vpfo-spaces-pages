@@ -95,4 +95,28 @@ class Airtable_Api {
 
 		return $classroom;
 	}
+
+	public function get_classroom_building_slug( string $classroom_building_code ) {
+		// Check if the building code is provided
+		if ( ! $classroom_building_code ) {
+			return null; // No building code provided
+		}
+
+		$params = array(
+			'filterByFormula' => sprintf( "AND( {Code} = '%s' )", $classroom_building_code ),
+			'maxRecords'      => 1,
+		);
+
+		$request  = $this->van_airtable->getContent( 'Buildings', $params ); // TODO - get the correct db (van or ok)
+		$response = $request->getResponse();
+
+		if ( ! $response['records'] || empty( $response['records'] ) ) {
+			return null;
+		}
+
+		$building      = $response['records'][0];
+		$building_slug = $building->fields->{'Slug'};
+
+		return $building_slug;
+	}
 }

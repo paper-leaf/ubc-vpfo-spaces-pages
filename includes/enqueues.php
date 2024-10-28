@@ -37,7 +37,7 @@ function ubc_vpfo_spaces_pages_enqueue_styles_scripts() {
 			plugin_dir_url( __DIR__ ) . 'js/classrooms-image-gallery-glider.js',
 			array(),
 			'1.0',
-			array('strategy' => 'defer')
+			array( 'strategy' => 'defer' )
 		);
 	}
 }

@@ -18,10 +18,10 @@ class Airtable_Api {
 		'okanagan'  => 'okan_airtable',
 	);
 
-	public function __construct() {
-		$api_key      = UBC_VPFO_FIND_A_SPACE_AIRTABLE_API_KEY;
-		$van_base_id  = UBC_VPFO_FIND_A_SPACE_AIRTABLE_BASE_ID_VAN;
-		$okan_base_id = UBC_VPFO_FIND_A_SPACE_AIRTABLE_BASE_ID_OKAN;
+	public function __construct( array $settings ) {
+		$api_key      = $settings['api_key'];
+		$van_base_id  = $settings['base_id_van'];
+		$okan_base_id = $settings['base_id_okan'];
 
 		$this->van_airtable = new Airtable(
 			array(
